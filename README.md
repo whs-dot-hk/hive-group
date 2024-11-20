@@ -80,6 +80,7 @@ with inputs.cells.lib.helpers; {
 # or comb/group/hardwareProfiles.nix
 # or comb/group/nixosModules.nix
 # or comb/group/nixosProfiles.nix
+# Shared libraries are in comb/lib
 with inputs.cells.lib.diskoConfigurations; {
   banana-philippines = {};
 }
