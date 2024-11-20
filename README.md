@@ -77,11 +77,26 @@ with inputs.cells.lib.helpers; {
 # Group
 ```nix
 # comb/group/diskoConfigurations.nix
-# or comb/group/hardwareProfiles.nix
-# or comb/group/nixosModules.nix
-# or comb/group/nixosProfiles.nix
 # Shared libraries are in comb/lib
 with inputs.cells.lib.diskoConfigurations; {
+  banana-philippines = {};
+}
+
+
+# comb/group/hardwareProfiles.nix
+with inputs.cells.lib.hardwareProfiles; {
+  banana-philippines = {};
+}
+
+
+# comb/group/nixosModules.nix
+with inputs.cells.lib.nixosModules; {
+  banana-philippines = {};
+}
+
+
+# comb/group/nixosProfiles.nix
+with inputs.cells.lib.nixosProfiles; {
   banana-philippines = {};
 }
 ```
@@ -153,11 +168,28 @@ with inputs.cells.lib.helpers; {
 
 
 # comb/banana/colmenaConfigurations.nix
-# or comb/banana/diskoConfigurations.nix
-# or comb/banana/hardwareProfiles.nix
-# or comb/banana/nixosConfigurations.nix
-# or comb/banana/nixosModules.nix
-# or comb/banana/nixosProfiles.nix
+{
+  inputs,
+  cell,
+  ...
+} @ a:
+{}
+// (cell.groups.philippines.colmenaConfigurations a)
+// (cell.groups.other.colmenaConfigurations a)
+
+
+# comb/banana/diskoConfigurations.nix
+{
+  inputs,
+  cell,
+  ...
+} @ a:
+{}
+// (cell.groups.philippines.diskoConfigurations a)
+// (cell.groups.other.diskoConfigurations a)
+
+
+# comb/banana/hardwareProfiles.nix
 {
   inputs,
   cell,
@@ -168,12 +200,62 @@ with inputs.cells.lib.helpers; {
 // (cell.groups.other.hardwareProfiles a)
 
 
+# comb/banana/nixosConfigurations.nix
+{
+  inputs,
+  cell,
+  ...
+} @ a:
+{}
+// (cell.groups.philippines.nixosConfigurations a)
+// (cell.groups.other.nixosConfigurations a)
+
+
+# comb/banana/nixosModules.nix
+{
+  inputs,
+  cell,
+  ...
+} @ a:
+{}
+// (cell.groups.philippines.nixosModules a)
+// (cell.groups.other.nixosModules a)
+
+
+# comb/banana/nixosProfiles.nix
+{
+  inputs,
+  cell,
+  ...
+} @ a:
+{}
+// (cell.groups.philippines.nixosProfiles a)
+// (cell.groups.other.nixosProfiles a)
+
+
 # comb/group/diskoConfigurations.nix
-# or comb/group/hardwareProfiles.nix
-# or comb/group/nixosModules.nix
-# or comb/group/nixosProfiles.nix
-# Shared libraries are in comb/lib
+with inputs.cells.lib.diskoConfigurations; {
+  banana-philippines = ...
+  banana-other = {};
+}
+
+
+# comb/group/hardwareProfiles.nix
+with inputs.cells.lib.hardwareProfiles; {
+  banana-philippines = ...
+  banana-other = {};
+}
+
+
+# comb/group/nixosModules.nix
 with inputs.cells.lib.nixosModules; {
+  banana-philippines = ...
+  banana-other = {};
+}
+
+
+# comb/group/nixosProfiles.nix
+with inputs.cells.lib.nixosProfiles; {
   banana-philippines = ...
   banana-other = {};
 }
