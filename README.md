@@ -132,6 +132,7 @@ with inputs.cells.lib.diskoConfigurations; {
 ```sh
 colmena apply --on @banana-group-a
 colmena apply --on @banana-philippines-group-a
+colmena apply --on banana-philippines-instance00
 ```
 # FAQ: how to add another group?
 ```nix
