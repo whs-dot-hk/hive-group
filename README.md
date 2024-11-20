@@ -133,3 +133,59 @@ with inputs.cells.lib.diskoConfigurations; {
 colmena apply --on @banana-group-a
 colmena apply --on @banana-philippines-group-a
 ```
+# FAQ: how to add another group?
+```nix
+# comb/banana/groups.nix
+with inputs.cells.lib.helpers; {
+  philippines = ...
+  other = group.new {
+    groupName = "other";
+    prefix = "banana-";
+    ips = [
+      "10.0.20.1"
+      "10.0.20.2"
+      "10.0.20.3"
+      "10.0.20.4"
+    ];
+  };
+}
+
+
+# comb/banana/colmenaConfigurations.nix
+# or comb/banana/diskoConfigurations.nix
+# or comb/banana/hardwareProfiles.nix
+# or comb/banana/nixosConfigurations.nix
+# or comb/banana/nixosModules.nix
+# or comb/banana/nixosProfiles.nix
+{
+  inputs,
+  cell,
+  ...
+} @ a:
+{}
+// (cell.groups.philippines.hardwareProfiles a)
+// (cell.groups.other.hardwareProfiles a)
+
+
+# comb/group/diskoConfigurations.nix
+# or comb/group/hardwareProfiles.nix
+# or comb/group/nixosModules.nix
+# or comb/group/nixosProfiles.nix
+# Shared libraries are in comb/lib
+with inputs.cells.lib.nixosModules; {
+  banana-philippines = ...
+  banana-other = {};
+}
+
+
+# comb/host/nixosProfiles.nix
+{
+  banana-philippines-instance00 = ...
+  ...
+  banana-philippines-instance03 = ...
+  banana-other-instance00 = {}; # Optional
+  banana-other-instance01 = {};
+  banana-other-instance02 = {};
+  banana-other-instance03 = {};
+}
+```
