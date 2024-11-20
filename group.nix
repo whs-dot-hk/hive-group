@@ -31,7 +31,7 @@
     instanceName = n: instancePrefix + instanceNumber n;
     generateInstancesWithValues = values: f:
       builtins.listToAttrs (builtins.concatLists (lib.lists.imap0 (i: v: let
-          instanceName' = instanceName n;
+          instanceName' = instanceName i;
         in [
           (
             lib.attrsets.nameValuePair
