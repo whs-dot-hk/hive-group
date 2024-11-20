@@ -8,8 +8,8 @@
     self,
   }: {
     group = import ./group.nix {
+      inherit (lib) lib;
       inherit POP;
-      inherit lib;
     };
   };
 }
