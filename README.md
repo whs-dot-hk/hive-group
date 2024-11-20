@@ -272,3 +272,35 @@ with inputs.cells.lib.nixosProfiles; {
   banana-other-instance03 = {};
 }
 ```
+# FAQ: what will my lib look like?
+```nix
+# comb/lib/hardwareProfiles.nix
+{
+  aws = ...
+  gcp = ...
+}
+
+
+# comb/lib/diskoConfigurations.nix
+{
+  without-second-disk = {
+    disko.devices.disk = {
+      ...
+    };
+  };
+  with-second-disk = lib.attrsets.recursiveUpdate without-second-disk {
+    ...
+  };
+  gcp-without-second-disk = ...
+  gcp-with-second-disk = ...
+}
+
+
+# comb/lib/nixosProfiles.nix
+{
+  aws-common = ...
+  gcp-common = ...
+  common = ... # Should available on every machine like vim
+  users = ...
+}
+```
