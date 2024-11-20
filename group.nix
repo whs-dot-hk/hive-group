@@ -1,4 +1,7 @@
-{lib}: {
+{
+  POP,
+  lib,
+}: {
   new = {
     groupName ? "",
     groups ? ["a" "b" "c"],
@@ -90,7 +93,7 @@
         ];
       });
   in
-    kPop {
+    POP.lib.kPop {
       inherit end;
 
       colmenaConfigurations = generateInstancesForColmenaConfigurations ips;
