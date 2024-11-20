@@ -128,3 +128,8 @@ with inputs.cells.lib.diskoConfigurations; {
   ...
 }
 ```
+# Colmena
+```sh
+colmena apply --on @banana-group-a
+colmena apply --on @banana-philippines-group-a
+```
