@@ -308,5 +308,5 @@ with inputs.cells.lib.nixosProfiles; {
 ```
 # FAQ: why do I need `comb/lib`, `comb/group` and `comb/host`?
 When there are many machines, it is natural that some will have similiar purpose.
-So there is group, at the same time eash machine may have small difference. So there is host.
-Lib is where I put everything, so I can pick what I needed in group and host.
+So there is group, at the same time each machine may have small difference. So there is host.
+Lib is where I put everything, so I can pick what I need in group and host.
