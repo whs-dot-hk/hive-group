@@ -35,8 +35,8 @@
         in [
           (
             lib.attrsets.nameValuePair
-            groupName'
-            + instanceName'
+            (groupName'
+              + instanceName')
             (f instanceName' i v)
           )
         ])
@@ -47,8 +47,8 @@
         in [
           (
             lib.attrsets.nameValuePair
-            groupName'
-            + instanceName'
+            (groupName'
+              + instanceName')
             (f instanceName')
           )
         ])
