@@ -84,10 +84,10 @@
           disko = assert (inputs ? disko); inputs.disko.nixosModules.disko;
           host = inputs.cells.host.nixosProfiles."${fullGroupName}-${instanceName}" or {};
         in [
-          cell.diskoConfigurations."${groupName'}${nodeName}"
-          cell.hardwareProfiles."${groupName'}${nodeName}"
-          cell.nixosModules."${groupName'}${nodeName}"
-          cell.nixosProfiles."${groupName'}${nodeName}"
+          cell.diskoConfigurations."${groupName'}${instanceName}"
+          cell.hardwareProfiles."${groupName'}${instanceName}"
+          cell.nixosModules."${groupName'}${instanceName}"
+          cell.nixosProfiles."${groupName'}${instanceName}"
           disko
           host
         ];
