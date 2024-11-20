@@ -28,7 +28,7 @@
       if builtins.stringLength n' < 2
       then "0${n'}"
       else n';
-    instanceName = n: instancePrefix + instanceNumber x;
+    instanceName = n: instancePrefix + instanceNumber n;
     generateInstancesWithValues = values: f:
       builtins.listToAttrs (builtins.concatLists (lib.lists.imap0 (i: v: let
           instanceName' = instanceName n;
