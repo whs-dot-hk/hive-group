@@ -149,7 +149,7 @@ colmena apply --on @banana-group-a
 colmena apply --on @banana-delmonte-group-a
 colmena apply --on banana-delmonte-instance00
 ```
-# FAQ: how to add andole brand (group)?
+# FAQ: how to add another brand (group)?
 ```nix
 # comb/banana/groups.nix
 with inputs.cells.lib.helpers; {
