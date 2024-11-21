@@ -2,8 +2,8 @@
 ```nix
 # comb/banana/groups.nix
 with inputs.cells.lib.helpers; {
-  philippines = group.new {
-    groupName = "philippines";
+  delmonte = group.new {
+    groupName = "delmonte";
     prefix = "banana-";
     ips = [
       "10.0.10.1"
@@ -22,7 +22,7 @@ with inputs.cells.lib.helpers; {
   ...
 } @ a:
 {}
-// (cell.groups.philippines.colmenaConfigurations a)
+// (cell.groups.delmonte.colmenaConfigurations a)
 
 
 # comb/banana/diskoConfigurations.nix
@@ -32,7 +32,7 @@ with inputs.cells.lib.helpers; {
   ...
 } @ a:
 {}
-// (cell.groups.philippines.diskoConfigurations a)
+// (cell.groups.delmonte.diskoConfigurations a)
 
 
 # comb/banana/hardwareProfiles.nix
@@ -42,7 +42,7 @@ with inputs.cells.lib.helpers; {
   ...
 } @ a:
 {}
-// (cell.groups.philippines.hardwareProfiles a)
+// (cell.groups.delmonte.hardwareProfiles a)
 
 
 # comb/banana/nixosConfigurations.nix
@@ -52,7 +52,7 @@ with inputs.cells.lib.helpers; {
   ...
 } @ a:
 {}
-// (cell.groups.philippines.nixosConfigurations a)
+// (cell.groups.delmonte.nixosConfigurations a)
 
 
 # comb/banana/nixosModules.nix
@@ -62,7 +62,7 @@ with inputs.cells.lib.helpers; {
   ...
 } @ a:
 {}
-// (cell.groups.philippines.nixosModules a)
+// (cell.groups.delmonte.nixosModules a)
 
 
 # comb/banana/nixosProfiles.nix
@@ -72,42 +72,42 @@ with inputs.cells.lib.helpers; {
   ...
 } @ a:
 {}
-// (cell.groups.philippines.nixosProfiles a)
+// (cell.groups.delmonte.nixosProfiles a)
 ```
 # Group
 ```nix
 # comb/group/diskoConfigurations.nix
 # Shared libraries are in comb/lib
 with inputs.cells.lib.diskoConfigurations; {
-  banana-philippines = {};
+  banana-delmonte = {};
 }
 
 
 # comb/group/hardwareProfiles.nix
 with inputs.cells.lib.hardwareProfiles; {
-  banana-philippines = {};
+  banana-delmonte = {};
 }
 
 
 # comb/group/nixosModules.nix
 with inputs.cells.lib.nixosModules; {
-  banana-philippines = {};
+  banana-delmonte = {};
 }
 
 
 # comb/group/nixosProfiles.nix
 with inputs.cells.lib.nixosProfiles; {
-  banana-philippines = {};
+  banana-delmonte = {};
 }
 ```
 # Host
 ```nix
 # comb/host/nixosProfiles.nix
 {
-  banana-philippines-instance00 = {};
-  banana-philippines-instance01 = {};
-  banana-philippines-instance02 = {};
-  banana-philippines-instance03 = {};
+  banana-delmonte-instance00 = {};
+  banana-delmonte-instance01 = {};
+  banana-delmonte-instance02 = {};
+  banana-delmonte-instance03 = {};
 }
 ```
 # Lib
@@ -146,16 +146,16 @@ with inputs.cells.lib.nixosProfiles; {
 # Colmena
 ```sh
 colmena apply --on @banana-group-a
-colmena apply --on @banana-philippines-group-a
-colmena apply --on banana-philippines-instance00
+colmena apply --on @banana-delmonte-group-a
+colmena apply --on banana-delmonte-instance00
 ```
-# FAQ: how to add another group?
+# FAQ: how to add andole brand (group)?
 ```nix
 # comb/banana/groups.nix
 with inputs.cells.lib.helpers; {
-  philippines = ...
-  other = group.new {
-    groupName = "other";
+  delmonte = ...
+  dole = group.new {
+    groupName = "dole";
     prefix = "banana-";
     ips = [
       "10.0.20.1"
@@ -174,8 +174,8 @@ with inputs.cells.lib.helpers; {
   ...
 } @ a:
 {}
-// (cell.groups.philippines.colmenaConfigurations a)
-// (cell.groups.other.colmenaConfigurations a)
+// (cell.groups.delmonte.colmenaConfigurations a)
+// (cell.groups.dole.colmenaConfigurations a)
 
 
 # comb/banana/diskoConfigurations.nix
@@ -185,8 +185,8 @@ with inputs.cells.lib.helpers; {
   ...
 } @ a:
 {}
-// (cell.groups.philippines.diskoConfigurations a)
-// (cell.groups.other.diskoConfigurations a)
+// (cell.groups.delmonte.diskoConfigurations a)
+// (cell.groups.dole.diskoConfigurations a)
 
 
 # comb/banana/hardwareProfiles.nix
@@ -196,8 +196,8 @@ with inputs.cells.lib.helpers; {
   ...
 } @ a:
 {}
-// (cell.groups.philippines.hardwareProfiles a)
-// (cell.groups.other.hardwareProfiles a)
+// (cell.groups.delmonte.hardwareProfiles a)
+// (cell.groups.dole.hardwareProfiles a)
 
 
 # comb/banana/nixosConfigurations.nix
@@ -207,8 +207,8 @@ with inputs.cells.lib.helpers; {
   ...
 } @ a:
 {}
-// (cell.groups.philippines.nixosConfigurations a)
-// (cell.groups.other.nixosConfigurations a)
+// (cell.groups.delmonte.nixosConfigurations a)
+// (cell.groups.dole.nixosConfigurations a)
 
 
 # comb/banana/nixosModules.nix
@@ -218,8 +218,8 @@ with inputs.cells.lib.helpers; {
   ...
 } @ a:
 {}
-// (cell.groups.philippines.nixosModules a)
-// (cell.groups.other.nixosModules a)
+// (cell.groups.delmonte.nixosModules a)
+// (cell.groups.dole.nixosModules a)
 
 
 # comb/banana/nixosProfiles.nix
@@ -229,47 +229,167 @@ with inputs.cells.lib.helpers; {
   ...
 } @ a:
 {}
-// (cell.groups.philippines.nixosProfiles a)
-// (cell.groups.other.nixosProfiles a)
+// (cell.groups.delmonte.nixosProfiles a)
+// (cell.groups.dole.nixosProfiles a)
 
 
 # comb/group/diskoConfigurations.nix
 with inputs.cells.lib.diskoConfigurations; {
-  banana-philippines = ...
-  banana-other = {};
+  banana-delmonte = ...
+  banana-dole = {};
 }
 
 
 # comb/group/hardwareProfiles.nix
 with inputs.cells.lib.hardwareProfiles; {
-  banana-philippines = ...
-  banana-other = {};
+  banana-delmonte = ...
+  banana-dole = {};
 }
 
 
 # comb/group/nixosModules.nix
 with inputs.cells.lib.nixosModules; {
-  banana-philippines = ...
-  banana-other = {};
+  banana-delmonte = ...
+  banana-dole = {};
 }
 
 
 # comb/group/nixosProfiles.nix
 with inputs.cells.lib.nixosProfiles; {
-  banana-philippines = ...
-  banana-other = {};
+  banana-delmonte = ...
+  banana-dole = {};
 }
 
 
 # comb/host/nixosProfiles.nix
 {
-  banana-philippines-instance00 = ...
+  banana-delmonte-instance00 = ...
   ...
-  banana-philippines-instance03 = ...
-  banana-other-instance00 = {}; # Optional
-  banana-other-instance01 = {};
-  banana-other-instance02 = {};
-  banana-other-instance03 = {};
+  banana-delmonte-instance03 = ...
+  banana-dole-instance00 = {}; # Optional
+  banana-dole-instance01 = {};
+  banana-dole-instance02 = {};
+  banana-dole-instance03 = {};
+}
+```
+# FAQ: how to add kiwi?
+```nix
+# comb/kiwi/groups.nix
+with inputs.cells.lib.helpers; {
+  zespri = group.new {
+    groupName = "zespri";
+    prefix = "kiwi-";
+    ips = [
+      "10.1.10.1"
+      "10.1.10.2"
+      "10.1.10.3"
+      "10.1.10.4"
+    ];
+  };
+}
+
+
+# comb/kiwi/colmenaConfigurations.nix
+{
+  inputs,
+  cell,
+  ...
+} @ a:
+{}
+// (cell.groups.zespri.colmenaConfigurations a)
+
+
+# comb/kiwi/diskoConfigurations.nix
+{
+  inputs,
+  cell,
+  ...
+} @ a:
+{}
+// (cell.groups.zespri.diskoConfigurations a)
+
+
+# comb/kiwi/hardwareProfiles.nix
+{
+  inputs,
+  cell,
+  ...
+} @ a:
+{}
+// (cell.groups.zespri.hardwareProfiles a)
+
+
+# comb/kiwi/nixosConfigurations.nix
+{
+  inputs,
+  cell,
+  ...
+} @ a:
+{}
+// (cell.groups.zespri.nixosConfigurations a)
+
+
+# comb/kiwi/nixosModules.nix
+{
+  inputs,
+  cell,
+  ...
+} @ a:
+{}
+// (cell.groups.zespri.nixosModules a)
+
+
+# comb/kiwi/nixosProfiles.nix
+{
+  inputs,
+  cell,
+  ...
+} @ a:
+{}
+// (cell.groups.zespri.nixosProfiles a)
+
+
+# comb/group/diskoConfigurations.nix
+with inputs.cells.lib.diskoConfigurations; {
+  banana-delmonte = ...
+  banana-dole = ...
+  kiwi-zespri = {};
+}
+
+
+# comb/group/hardwareProfiles.nix
+with inputs.cells.lib.hardwareProfiles; {
+  banana-delmonte = ...
+  banana-dole = ...
+  kiwi-zespri = {};
+}
+
+
+# comb/group/nixosModules.nix
+with inputs.cells.lib.nixosModules; {
+  banana-delmonte = ...
+  banana-dole = ...
+  kiwi-zespri = {};
+}
+
+
+# comb/group/nixosProfiles.nix
+with inputs.cells.lib.nixosProfiles; {
+  banana-delmonte = ...
+  banana-dole = ...
+  kiwi-zespri = {};
+}
+
+
+# comb/host/nixosProfiles.nix
+{
+  banana-delmonte-instance00 = ...
+  ...
+  banana-dole-instance03 = ...
+  kiwi-zespri-instance00 = {};
+  kiwi-zespri-instance01 = {};
+  kiwi-zespri-instance02 = {};
+  kiwi-zespri-instance03 = {};
 }
 ```
 # FAQ: what will my lib look like?
