@@ -9,7 +9,7 @@ with inputs.cells.lib.helpers; {
       "10.0.10.1"
       "10.0.10.2"
       "10.0.10.3"
-      "10.0.10.4"
+      "10.0.10.4" # Max 100 ips
     ];
   };
 }
@@ -104,10 +104,10 @@ with inputs.cells.lib.nixosProfiles; {
 ```nix
 # comb/host/nixosProfiles.nix
 {
-  banana-delmonte-instance00 = {};
+  banana-delmonte-instance00 = {}; # Two digits for sorting
   banana-delmonte-instance01 = {};
   banana-delmonte-instance02 = {};
-  banana-delmonte-instance03 = {};
+  banana-delmonte-instance03 = {}; # From 00 to 99, do not go over 99
 }
 ```
 # Lib
